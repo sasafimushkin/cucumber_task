@@ -3,7 +3,7 @@ const path = require('path');
 exports.config = {
     runner: 'local',
     specs: ['./features/**/*.feature'],
-    maxInstances: 1,
+    maxInstances: 2,
     capabilities: [
         {
             maxInstances: 1,
@@ -11,21 +11,19 @@ exports.config = {
             'goog:chromeOptions': {
                 args: ['--disable-blink-features=AutomationControlled'],
             }
-        },
-        {
-            maxInstances: 1,
-            browserName: 'firefox',
-            'moz:firefoxOptions': {
-                args: [],
-            }
         }
     ],
     framework: 'cucumber',
     cucumberOpts: {
         require: ['./features/step-definitions/**/*.js'],
         timeout: 60000,
+        format: [],
     },
-    port: 9515,
-    path: '/',
+    services: [
+        ['chromedriver', {
+            port: 9515,
+            args: ['--disable-dev-shm-usage'],
+        }]
+    ],
     reporters: ['spec'],
 };
