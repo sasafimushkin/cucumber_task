@@ -1,0 +1,17 @@
+{
+  "name": "wdio-cucumber-saucedemo",
+  "version": "1.0.0",
+  "description": "WebDriverIO + Cucumber test for SauceDemo login validation",
+  "scripts": {
+    "test": "wdio run wdio.cucumber.conf.js"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.0.0",
+    "@wdio/cli": "^8.24.0",
+    "@wdio/cucumber-framework": "^8.24.0",
+    "@wdio/globals": "^8.24.0",
+    "@wdio/local-runner": "^8.24.0",
+    "@wdio/selenium-standalone-service": "^8.14.0",
+    "@wdio/spec-reporter": "^8.24.0"
+  }
+}
