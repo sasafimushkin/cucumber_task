@@ -18,6 +18,9 @@ exports.config = {
         require: ['./features/step-definitions/**/*.js'],
         timeout: 60000,
         format: [],
+        formatOptions: {
+            snippetInterface: 'async-await'
+        }
     },
     services: [
         ['chromedriver', {
@@ -25,5 +28,5 @@ exports.config = {
             args: ['--disable-dev-shm-usage'],
         }]
     ],
-    reporters: ['spec'],
+    reporters: [],
 };

@@ -57,6 +57,29 @@ Or run WebDriver.io directly:
 npx wdio run wdio.cucumber.conf.js
 ```
 
+### Known Issues
+
+**ESM/CJS Compatibility:** There is a known compatibility issue between @wdio/cucumber-framework v8, @cucumber/cucumber v9, and Node.js ES modules. If you encounter the error:
+```
+Error [ERR_REQUIRE_ASYNC_MODULE]: require() cannot be used on an ESM graph with top-level await
+```
+
+**Workaround Solutions:**
+1. **Use a lower Node.js version (v18 LTS)** - The issue is less pronounced with Node 18
+2. **Use WebDriverIO v7** with @cucumber/cucumber v8:
+   ```json
+   "@wdio/cli": "^7.30.0",
+   "@wdio/cucumber-framework": "^7.30.0",
+   "@cucumber/cucumber": "^8.0.0"
+   ```
+3. **Switch to Jasmine/Jest framework** instead of Cucumber
+
+To switch to Jasmine:
+```bash
+npm install --save-dev @wdio/jasmine-framework @wdio/sync
+```
+Then update `wdio.cucumber.conf.js` to use `framework: 'jasmine'`
+
 ## Key Technologies
 
 - **WebDriverIO (v8.24.0)** - Browser automation framework
