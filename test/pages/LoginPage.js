@@ -14,6 +14,10 @@ class LoginPage {
         await this.errorMessage.waitForDisplayed({ timeout: 3000 });
         return this.errorMessage.getText();
     }
+
+    async isErrorMessageDisplayed() {
+        return await this.errorMessage.isDisplayed();
+    }
 }
 
 module.exports = new LoginPage();

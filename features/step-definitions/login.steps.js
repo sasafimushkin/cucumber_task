@@ -14,6 +14,9 @@ When(/^User clicks the "([^"]*)" button$/, async (buttonName) => {
 });
 
 Then(/^User should see "([^"]*)" error message$/, async (expectedMessage) => {
+    const isDisplayed = await loginPage.isErrorMessageDisplayed();
+    expect(isDisplayed).toBe(true);
+    
     const actual = await loginPage.getErrorMessage();
     expect(actual).toContain(expectedMessage);
 });
