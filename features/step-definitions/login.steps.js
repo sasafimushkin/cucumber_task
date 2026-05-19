@@ -1,4 +1,4 @@
-const { Given, When, Then } = require('@wdio/cucumber-framework');
+const { Given, When, Then } = require('@cucumber/cucumber');
 const { expect } = require('@wdio/globals');
 const loginPage = require('../../test/pages/LoginPage');
 
